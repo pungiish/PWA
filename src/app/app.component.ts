@@ -9,7 +9,12 @@ export class AppComponent {
   url: string;
   constructor(){
     this.url = "https://cataas.com/cat?"
+}
+
+  klik = () => {
+    location.reload();
   }
+
 }
 
 
