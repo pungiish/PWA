@@ -3,7 +3,8 @@
 var CACHE = 'pwabuilder-precache';
 var precacheFiles = [
       "./index.html",
-      "./favicon.ico"
+      "./favicon.ico",
+      "./manifest.json"
     ];
 
 //Install stage sets up the cache-array to configure pre-cache content
