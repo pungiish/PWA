@@ -10,7 +10,8 @@
       "assets": [
         "assets",
         "favicon.ico",
-        "./pwabuilder-sw.js"
+        "pwabuilder-sw.js",
+        "manifest.json"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -24,7 +25,7 @@
         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [
-        "./pwabuilder-sw.js"
+        "pwabuilder-sw.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
