@@ -10,3 +10,15 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
+
+
+ if(navigator.serviceWorker.controller){
+      console.log('[SW] aktiviran, ni potrebne ponovne registracije')
+    }
+    else{
+      navigator.serviceWorker.register('pwabuilder-sw.js',{
+        scope:"./"
+      }).then(function(reg){
+        console.log('[SW] uspesno registriran' + reg.scope);
+      });
+    }
