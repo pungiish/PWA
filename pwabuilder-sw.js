@@ -20,6 +20,7 @@ this.addEventListener('fetch',function(e){
   console.log('fetcham!');
   e.respondWith(caches.match(e.request).then(function(res){
     //ce fetcham sliko macke in sem online,dodaj novo sliko v cache.
+    //drugace se skos ponavlja ista slike, ker je url ze cachan
     if(e.request.url==="https://cataas.com/cat?"&& navigator.onLine){
        fetch(e.request.url).then(function(res){
         console.log(res.url);
@@ -36,6 +37,7 @@ this.addEventListener('fetch',function(e){
       console.log("Resource ni cachan!")
       return fetch(e.request).then(function(res){
         console.log(res.url);
+        //CE SE NI CACHANO, CACHAJ!
         e.waitUntil(caches.open(CACHE).then(function(cache){
          return cache.add(res.url)
         }))
