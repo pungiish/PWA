@@ -19,11 +19,12 @@ this.addEventListener('install',function(e){
 this.addEventListener('fetch',function(e){
   console.log('fetcham!');
   e.respondWith(caches.match(e.request).then(function(res){
+    //ce fetcham sliko macke in sem online,dodaj novo sliko v cache.
     if(e.request.url==="https://cataas.com/cat?"&& navigator.onLine){
-      return fetch(e.request.url).then(function(res){
+       fetch(e.request.url).then(function(res){
         console.log(res.url);
         e.waitUntil(caches.open(CACHE).then(function(cache){
-         return cache.add(res.url);
+          cache.add(res.url);
           console.log("Dodal novo sliko!:)")
         }))
       })
