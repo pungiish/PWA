@@ -29,7 +29,8 @@ function precache() {
       '/PWA/',
       '/PWA/index.html',
       '/PWA/favicon.ico',
-      '/PWA/assets/images/icons/icon-192x192.png'
+      '/PWA/assets/images/icons/icon-192x192.png',
+      '/PWA/\/$js/'
     ]);
   });
 }
