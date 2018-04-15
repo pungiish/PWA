@@ -22,7 +22,7 @@ this.addEventListener('fetch',function(e){
     if(e.request.url==="https://cataas.com/cat?"&& navigator.onLine){
       return fetch(e.request).then(function(res){
         e.waitUntil(caches.open(CACHE).then(function(cache){
-          cache.add(res.url);
+         return cache.add(res.url);
           console.log("Dodal novo sliko!:)")
         }))
       })
