@@ -10,11 +10,6 @@ export class AppComponent {
   constructor(){
     this.url = "https://cataas.com/cat?"
 }
-
-  klik = () => {
-    location.reload();
-  }
-
 }
 
 
