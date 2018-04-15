@@ -10,6 +10,15 @@ export class AppComponent {
   constructor(){
     this.url = "https://cataas.com/cat?"
 }
+
+ Preveri(): boolean{
+    if(navigator.onLine){
+      return false;
+    }
+    else
+    return true;
+  }
+
 }
 
 
