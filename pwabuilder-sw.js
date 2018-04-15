@@ -5,9 +5,6 @@ var precacheFiles = [
       "./index.html",
       "./favicon.ico",
       "./manifest.json",
-      "./inline.318b50c57b4eba3d437b.bundle.js",
-      "./polyfills.b6b2cd0d4c472ac3ac12.bundle.js",
-      "./main.32c1ebf1b49af03b45b9.bundle.js"
     ];
 
 //Install stage sets up the cache-array to configure pre-cache content
