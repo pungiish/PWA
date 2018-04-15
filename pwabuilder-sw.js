@@ -23,10 +23,10 @@ this.addEventListener('fetch',function(e){
     if(e.request.url==="https://cataas.com/cat?"&& navigator.onLine){
        fetch(e.request.url).then(function(res){
         console.log(res.url);
-        e.waitUntil(caches.open(CACHE).then(function(cache){
+        caches.open(CACHE).then(function(cache){
           cache.add(res.url);
           console.log("Dodal novo sliko!:)")
-        }))
+        })
       })
     }
       if(res){
