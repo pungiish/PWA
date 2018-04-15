@@ -20,7 +20,8 @@ this.addEventListener('fetch',function(e){
   console.log('fetcham!');
   e.respondWith(caches.match(e.request).then(function(res){
     if(e.request.url==="https://cataas.com/cat?"&& navigator.onLine){
-      return fetch(e.request).then(function(res){
+      return fetch(e.request.url).then(function(res){
+        console.log(res.url);
         e.waitUntil(caches.open(CACHE).then(function(cache){
          return cache.add(res.url);
           console.log("Dodal novo sliko!:)")
