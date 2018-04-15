@@ -1,54 +1,47 @@
 var CACHE = 'cache-and-update';
 
-// On install, cache some resources.
-self.addEventListener('install', function(evt) {
-  console.log('The service worker is being installed.');
 
-  // Ask the service worker to keep installing until the returning promise
-  // resolves.
-  evt.waitUntil(precache());
+this.addEventListener('install',function(e){
+  console.log('Instaliram SW');
+
+  e.waitUntil(caches.open(CACHE).then(function(cache){
+    console.log('Precacham!')
+      return cache.addAll([
+        "/",
+        "/PWA/index.html",
+        "/PWA/favicon.ico",
+        "https://cataas.com/cat?"
+      ])
+    })
+  );
 });
 
-// On fetch, use cache but update the entry with the latest contents
-// from the server.
-self.addEventListener('fetch', function(evt) {
-  console.log('The service worker is serving the asset.');
-  // You can use `respondWith()` to answer immediately, without waiting for the
-  // network response to reach the service worker...
-  evt.respondWith(fromCache(evt.request));
-  // ...and `waitUntil()` to prevent the worker from being killed until the
-  // cache is updated.
-  evt.waitUntil(update(evt.request));
+this.addEventListener('fetch',function(e){
+  console.log('fetcham!');
+  e.respondWith(caches.match(e.request).then(function(res){
+    //ce fetcham sliko macke in sem online,dodaj novo sliko v cache.
+    //drugace se skos ponavlja ista slike, ker je url ze cachan
+    if(e.request.url==="https://cataas.com/cat?"&& navigator.onLine){
+       fetch(e.request.url).then(function(res){
+        console.log(res.url);
+        caches.open(CACHE).then(function(cache){
+          cache.add(res.url);
+          console.log("Dodal novo sliko!:)")
+        })
+      })
+    }
+      if(res){
+        console.log("cachano:)")
+        return res;
+      }
+      console.log("Resource ni cachan!")
+      return fetch(e.request).then(function(res){
+        console.log(res.url);
+        //CE SE NI CACHANO, CACHAJ!
+        e.waitUntil(caches.open(CACHE).then(function(cache){
+         return cache.add(res.url)
+        }))
+        return res;
+    });
+    }));
 });
-
-// Open a cache and use `addAll()` with an array of assets to add all of them
-// to the cache. Return a promise resolving when all the assets are added.
-function precache() {
-  return caches.open(CACHE).then(function (cache) {
-    return cache.addAll([
-      './controlled.html',
-      './asset'
-    ]);
-  });
-}
-
-// Open the cache where the assets were stored and search for the requested
-// resource. Notice that in case of no matching, the promise still resolves
-// but it does with `undefined` as value.
-function fromCache(request) {
-  return caches.open(CACHE).then(function (cache) {
-    return cache.match(request).then(function (matching) {
-      return matching || Promise.reject('no-match');
-    });
-  });
-}
-
-// Update consists in opening the cache, performing a network request and
-// storing the new response data.
-function update(request) {
-  return caches.open(CACHE).then(function (cache) {
-    return fetch(request).then(function (response) {
-      return cache.put(request, response);
-    });
-  });
-}
