@@ -8,8 +8,8 @@ this.addEventListener('install',function(e){
     console.log('Precacham!')
       return cache.addAll([
         "/",
-        "/index.html",
-        "/favicon.ico",
+        "/PWA/index.html",
+        "/PWA/favicon.ico",
         "https://cataas.com/cat?"
       ])
     })
