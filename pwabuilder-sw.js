@@ -19,6 +19,14 @@ this.addEventListener('install',function(e){
 this.addEventListener('fetch',function(e){
   console.log('fetcham!');
   e.respondWith(caches.match(e.request).then(function(res){
+    if(e.request.url==="https://cataas.com/cat?"&& navigator.onLine){
+      return fetch(e.request).then(function(res){
+        e.waitUntil(caches.open(CACHE).then(function(cache){
+          cache.add(res.url);
+          console.log("Dodal novo sliko!:)")
+        }))
+      })
+    }
       if(res){
         console.log("cachano:)")
         return res;
