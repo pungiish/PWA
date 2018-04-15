@@ -1,4 +1,18 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Projekt</title><base href="https://pungiish.github.io/PWA/"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="manifest" href="manifest.json"><link href="styles.ee555a6a4c95198a6443.bundle.css" rel="stylesheet"/></head><body><app-root></app-root><script>if(navigator.serviceWorker.controller){
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Projekt</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <app-root></app-root>
+  <script>
+    if(navigator.serviceWorker.controller){
       console.log('[SW] aktiviran, ni potrebne ponovne registracije')
     }
     else{
@@ -7,4 +21,7 @@
       }).then(function(reg){
         console.log('[SW] uspesno registriran' + reg.scope);
       });
-    }</script><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.b6b2cd0d4c472ac3ac12.bundle.js"></script><script type="text/javascript" src="scripts.a8a816540eb9eda943cf.bundle.js"></script><script type="text/javascript" src="main.ff7739715ea009fd18bb.bundle.js"></script></body></html>
+    }
+  </script>
+<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="scripts.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
