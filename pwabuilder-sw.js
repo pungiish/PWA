@@ -26,9 +26,10 @@ self.addEventListener('fetch', function(evt) {
 function precache() {
   return caches.open(CACHE).then(function (cache) {
     return cache.addAll([
-      './index.html',
-      './favicon.ico',
-      "./"
+      '/',
+      '/index.html',
+      '/favicon.ico',
+      '/assets/images/icons/icon-192x192.png'
     ]);
   });
 }
