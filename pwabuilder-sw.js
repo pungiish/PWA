@@ -57,6 +57,7 @@ function fromCache(request) {
 function update(request) {
   //this is where we call the server to get the newest version of the 
   //file to use the next time we show view
+  console.log(request.url);
   return caches.open(CACHE).then(function (cache) {
     return fetch(request).then(function (response) {
       return cache.put(request, response);
