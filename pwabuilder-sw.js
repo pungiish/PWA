@@ -7,7 +7,6 @@ var precacheFiles = [
       "./manifest.json",
       "./inline.318b50c57b4eba3d437b.bundle.js",
       "./polyfills.b6b2cd0d4c472ac3ac12.bundle.js",
-      "./scripts.a8a816540eb9eda943cf.bundle.js",
       "./main.32c1ebf1b49af03b45b9.bundle.js"
     ];
 
