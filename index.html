@@ -5,15 +5,17 @@
       navigator.serviceWorker.register('pwabuilder-sw.js',{
       }).then(function(reg){
         console.log('[SW] uspesno registriran ' + reg.scope);
-        let deferredPrompt;
+
       });
     }
      window.addEventListener("beforeinstallprompt", function (e) {
+       let deferredPrompt;
         // log the platforms provided as options in an install prompt
         console.log(e.platforms); // e.g., ["web", "android", "windows"]
         console.log(e);
-        e.deferredPrompt();
+        e.preventDefault();
         console.log(e);
+        deferredPrompt = e;
         console.log("deferredPrompt");
-        e.prompt();
+        deferredPrompt.prompt();
       });</script><noscript><h1>App ne dela brez Javascripta!</h1></noscript><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.b6b2cd0d4c472ac3ac12.bundle.js"></script><script type="text/javascript" src="scripts.9c76621c2a494574d372.bundle.js"></script><script type="text/javascript" src="main.677fec666b4619534684.bundle.js"></script></body></html>
