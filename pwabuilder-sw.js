@@ -1,4 +1,7 @@
 var CACHE = 'cache-and-update';
+// Push to github pages with:
+// ng build --prod --base-href "/PWA/"
+// ngh
 
 
 this.addEventListener('install',function(e){

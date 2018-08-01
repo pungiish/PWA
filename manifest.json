@@ -1,14 +1,13 @@
 {
   "name": "MOL PROMINFO",
   "short_name": "PROMINFO",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
+  "theme_color": "#128450",
+  "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait",
-  "Scope": "/",
-  "start_url": "https://pungiish.github.io/PWA/",
+  "start_url": "/",
   "icons": [
-    
+
     {
       "src": "assets/images/icons/icon-192x192.png",
       "sizes": "192x192",
