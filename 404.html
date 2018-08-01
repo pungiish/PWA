@@ -1,5 +1,14 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><title>Projekt</title><base href="/PWA/"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#db5945"><link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="manifest" href="manifest.json"><link href="styles.5950846159fabf875caa.bundle.css" rel="stylesheet"/></head><body><app-root></app-root><script>if(navigator.serviceWorker.controller){
       console.log('[SW] aktiviran, ni potrebne ponovne registracije')
+       window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        console.log("Beforeinstallprompt fired!");
+        e.prompt();
+
+      });
     }
     else{
       navigator.serviceWorker.register('pwabuilder-sw.js',{
