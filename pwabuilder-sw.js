@@ -10,9 +10,10 @@ this.addEventListener('install',function(e){
   e.waitUntil(caches.open(CACHE).then(function(cache){
     console.log('Precacham!')
       return cache.addAll([
-        "/",
+        "/PWA/",
         "/PWA/index.html",
         "/PWA/favicon.ico",
+        "/PWA/manifest.json",
         "https://cataas.com/cat?"
       ])
     })
