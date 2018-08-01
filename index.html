@@ -7,19 +7,4 @@
         console.log('[SW] uspesno registriran ' + reg.scope);
 
       });
-    }
-    let deferredPrompt;
-    window.addEventListener("beforeinstallprompt", function (e) {
-      // log the platforms provided as options in an install prompt
-      console.log(e.platforms); // e.g., ["web", "android", "windows"]
-      console.log(e);
-      deferredPrompt = e;
-      e.preventDefault();
-      console.log(e);
-      console.log("deferredPrompt");
-
-    });
-    function Prompt(e) {
-      console.log(e);
-      deferredPrompt.prompt();
     }</script><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.b6b2cd0d4c472ac3ac12.bundle.js"></script><script type="text/javascript" src="scripts.d1de80e0367d329e7f45.bundle.js"></script><script type="text/javascript" src="main.ccaa9c7ab3e8e7071f2d.bundle.js"></script></body></html>
