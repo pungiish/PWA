@@ -1,21 +1,25 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Projekt</title><base href="/PWA/"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#db5945"><link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="manifest" href="manifest.json"><link href="styles.5950846159fabf875caa.bundle.css" rel="stylesheet"/></head><body><app-root></app-root><script>if(navigator.serviceWorker.controller){
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Projekt</title><base href="/PWA/"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#db5945"><link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="manifest" href="manifest.json"><link href="styles.5950846159fabf875caa.bundle.css" rel="stylesheet"/></head><body><app-root></app-root><button id="prompt" onclick="Prompt()">Prompt</button><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.b6b2cd0d4c472ac3ac12.bundle.js"></script><script type="text/javascript" src="scripts.9c76621c2a494574d372.bundle.js"></script><script type="text/javascript" src="main.677fec666b4619534684.bundle.js"></script><script>if (navigator.serviceWorker.controller) {
       console.log('[SW] aktiviran, ni potrebne ponovne registracije')
     }
-    else{
-      navigator.serviceWorker.register('pwabuilder-sw.js',{
-      }).then(function(reg){
+    else {
+      navigator.serviceWorker.register('pwabuilder-sw.js', {
+      }).then(function (reg) {
         console.log('[SW] uspesno registriran ' + reg.scope);
 
       });
     }
-     window.addEventListener("beforeinstallprompt", function (e) {
-       let deferredPrompt;
-        // log the platforms provided as options in an install prompt
-        console.log(e.platforms); // e.g., ["web", "android", "windows"]
-        console.log(e);
-        e.preventDefault();
-        console.log(e);
-        deferredPrompt = e;
-        console.log("deferredPrompt");
-        deferredPrompt.prompt();
-      });</script><noscript><h1>App ne dela brez Javascripta!</h1></noscript><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.b6b2cd0d4c472ac3ac12.bundle.js"></script><script type="text/javascript" src="scripts.9c76621c2a494574d372.bundle.js"></script><script type="text/javascript" src="main.677fec666b4619534684.bundle.js"></script></body></html>
+    let deferredPrompt;
+    window.addEventListener("beforeinstallprompt", function (e) {
+      // log the platforms provided as options in an install prompt
+      console.log(e.platforms); // e.g., ["web", "android", "windows"]
+      console.log(e);
+      deferredPrompt = e;
+      e.preventDefault();
+      console.log(e);
+      console.log("deferredPrompt");
+
+    });
+    function Prompt(e) {
+      console.log(e);
+      deferredPrompt.prompt();
+    }</script><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.b6b2cd0d4c472ac3ac12.bundle.js"></script><script type="text/javascript" src="scripts.d1de80e0367d329e7f45.bundle.js"></script><script type="text/javascript" src="main.09ef613d455514a922cc.bundle.js"></script></body></html>

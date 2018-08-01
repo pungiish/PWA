@@ -7,7 +7,6 @@
   "orientation": "portrait",
   "start_url": "/PWA/",
   "icons": [
-
     {
       "src": "assets/images/icons/icon-192x192.png",
       "sizes": "192x192",
